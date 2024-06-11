@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
+import Sidebar from './components/sidebar/sidebar';
+import Home from './pages/home';
+import NewPost from './pages/newPost';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [theme, setTheme] = useState('light');
+
+  const onThemeToggle = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={`app-container ${theme}`}>
+        <Header onThemeToggle={onThemeToggle} theme={theme} />
+        <div className="content-container">
+          <Sidebar theme={theme} />
+          <main className={`main-container ${theme}`}>
+            <Routes>
+              <Route path="/" element={<Home theme={theme} />} />
+              <Route path="/new-post" element={<NewPost theme={theme}/>} />
+            </Routes>
+          </main>
+        </div>
+        <Footer theme={theme} />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

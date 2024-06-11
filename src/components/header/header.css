@@ -1,0 +1,126 @@
+.header {
+  padding: 10px 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.header.light {
+  background-color: #ADD8E6;
+  color: rgb(58, 57, 57);
+}
+
+.header.dark {
+  background-color: #331655;
+  color: #ffffff;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header-left {
+  display: flex;
+  justify-content: left;
+  margin: 10px;
+}
+
+.text-logo p {
+  font-size: 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.header-right nav {
+  display: flex;
+}
+
+.header-right nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.header.light #addP {
+  color: #6b6969;
+  background-color: #87CEEB;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); 
+  padding: 13px;
+}
+
+.header.dark #addP {
+  color: #ffffff;
+  background-color: #443d6f;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.3); 
+  padding: 13px;
+}
+
+.header.light #addP:hover {
+  background-color: #00BFFF;
+}
+
+.header.dark #addP:hover {
+  background-color: #463152;
+}
+
+.header.light #search {
+  margin: 10px 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #87CEEB;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); 
+  color: rgb(58, 57, 57);
+  border: 0px;
+  padding-right: 30px; 
+  background-image: url('https://img.icons8.com/ios-filled/20/search.png');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+
+.header.dark #search {
+  margin: 10px 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #443d6f;
+  box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.3); 
+  color: #ffffff;
+  border: 0px;
+  padding-right: 30px; 
+  background-image: url('https://img.icons8.com/ios-filled/20/search.png');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+
+.theme-toggle {
+  border: 0px;
+  margin-right: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header.light .theme-toggle {
+  background-color: #ADD8E6;
+  color: #010db1;
+}
+
+.header.dark .theme-toggle {
+  background-color: #331655;
+  color: #ffffff;
+}

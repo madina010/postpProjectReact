@@ -1,0 +1,13 @@
+footer{
+  z-index: 20;
+}
+
+footer.light {
+  background-color: #ADD8E6 ;
+  color: rgb(58, 57, 57);
+}
+
+footer.dark {
+  background-color: #331655;
+  color: #ffffff;
+}
