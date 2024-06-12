@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addPost } from '../../store/postSlice';
-import '../../pages/newPost.css'
+import { useNavigate } from 'react-router-dom'; 
 
-const PostForm = ({ theme }) => {
+const PostForm = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const dispatch = useDispatch();
-  const currentTheme = useSelector(state => state.theme); 
+  const navigate = useNavigate(); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,11 +15,12 @@ const PostForm = ({ theme }) => {
     dispatch(addPost(newPost));
     setTitle('');
     setBody('');
+    navigate('/'); 
   };
 
   return (
     <div>
-      <div className={`post-form-container ${currentTheme}`}>
+      <div className="post-form-container">
         <h2>Написать пост</h2>
         <form className="post-form" onSubmit={handleSubmit}>
           <div>

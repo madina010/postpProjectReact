@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
+// Home.js
+import React from 'react';
 import PostList from '../components/postList/postList';
-import PostForm from '../components/postForm/postForm';
-import "./home.css";
+import './home.css';
 
-const Home = ({ theme }) => {
-  const [posts, setPosts] = useState([]);
-
-  const updatePosts = (newPost) => {
-    setPosts(prevPosts => [...prevPosts, newPost]);
-  };
-
+const Home = ({ theme, searchTerm }) => {
   return (
     <main>
       <section>
         <div className="content">
-          <PostList theme={theme} posts={posts} />
-          <PostForm theme={theme} updatePosts={updatePosts} />
+          <PostList theme={theme} searchTerm={searchTerm} />
         </div>
       </section>
     </main>

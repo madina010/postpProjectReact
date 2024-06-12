@@ -2,28 +2,30 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPosts } from '../../store/postSlice';
 import axios from 'axios';
-import "./postList.css";
+import './postList.css';
 
-const PostList = ({ theme, posts }) => {
+const PostList = ({ theme, searchTerm }) => {
   const dispatch = useDispatch();
   const storedPosts = useSelector((state) => state.posts.list);
 
   useEffect(() => {
-    if (posts.length === 0) {
+    if (storedPosts.length === 0) {
       axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(response => {
           dispatch(setPosts(response.data));
         });
     }
-  }, [dispatch, posts]);
+  }, [dispatch, storedPosts]);
 
-  const postsToRender = posts.length > 0 ? posts : storedPosts;
+  const filteredPosts = storedPosts.filter(post =>
+    post.title.toLowerCase().includes(searchTerm ? searchTerm.toLowerCase() : '')
+  );
 
   return (
     <div className={`post-list-container ${theme}`}>
       <div className="post-list">
         <ul>
-          {postsToRender.map(post => (
+          {filteredPosts.map(post => (
             <li key={post.id}>{post.title}</li>
           ))}
         </ul>
